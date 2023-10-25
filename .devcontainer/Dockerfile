@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.8.0-devel-ubuntu18.04
+FROM nvidia/cuda:11.0.3-devel-ubuntu18.04
 ARG PYTHON_VERSION=3.7
 
 ARG DEBIAN_FRONTEND=noninteractive
