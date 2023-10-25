@@ -1,0 +1,29 @@
+{
+    "name": "tacotron2",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "python",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "files.eol": "\n",
+                "files.insertFinalNewline": true,
+                "files.trimFinalNewlines": true,
+                "files.trimTrailingWhitespace": true,
+                "files.exclude": {
+                    "**/__pycache__": true
+                },
+                "files.watcherExclude": {
+                    "**/__pycache__/**": true,
+                    "outdir/**": true
+                }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+}

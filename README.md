@@ -1,3 +1,27 @@
+## 2023年10月25日現在Dockerを用いたtacotron2の環境構築
+
+```sh
+# git
+git clone https://github.com/mikiya1130/tacotron2.git (or git clone git@github.com:mikiya1130/tacotron2.git)
+cd tacotron2
+git submodule init; git submodule update
+
+# dataset
+wget https://data.keithito.com/data/speech/LJSpeech-1.1.tar.bz2
+tar jxvf LJSpeech-1.1.tar.bz2
+sed -i -- 's,DUMMY,LJSpeech-1.1/wavs,g' filelists/*.txt
+
+# pretrained weights
+sh download_from_google_drive.sh 1c5ZTuT7J08wLUoVZ2KkUs_VdZuJ86ZqA tacotron2_statedict.pt
+sh download_from_google_drive.sh 1rpK8CzAAirq9sWZhe9nlfvxMF1dRgFbF waveglow_256channels_universal_v5.pt
+
+# docker
+sh .devcontainer/generate_env.sh
+```
+
+- DevContainersを使用してコンテナ環境立ち上げ
+  - `Ctrl+Shift+P`=>`Dev Containers: rebuild and Reopen in Container`
+
 # Tacotron 2 (without wavenet)
 
 PyTorch implementation of [Natural TTS Synthesis By Conditioning
